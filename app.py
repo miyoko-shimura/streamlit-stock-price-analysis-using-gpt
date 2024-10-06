@@ -1,7 +1,7 @@
 import streamlit as st
 import yfinance as yf
 import pandas as pd
-import openai
+from openai import OpenAI
 import plotly.graph_objects as go
 
 # Streamlit app title
@@ -9,7 +9,7 @@ st.title('Stock Analysis App - GPT-4 Genius Analyst')
 
 # Sidebar for OpenAI API key input
 api_key = st.sidebar.text_input("Enter your OpenAI API key", type="password")
-openai.api_key = api_key
+client = OpenAI(api_key=api_key)
 
 # User input for stock ticker symbol
 ticker = st.text_input('Enter a stock ticker symbol (e.g., AAPL, GOOGL):')
@@ -55,10 +55,12 @@ if st.button('Analyze'):
             Provide a comprehensive yet concise analysis in about 200-300 words.
             """
 
-            response = openai.ChatCompletion.create(
-                model="gpt-4",  # Changed to GPT-4
-                messages=[{"role": "system", "content": "You are a genius financial analyst."},
-                          {"role": "user", "content": prompt}]
+            response = client.chat.completions.create(
+                model="gpt-4",
+                messages=[
+                    {"role": "system", "content": "You are a genius financial analyst."},
+                    {"role": "user", "content": prompt}
+                ]
             )
 
             analysis = response.choices[0].message.content
