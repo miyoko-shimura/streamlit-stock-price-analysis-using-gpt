@@ -54,7 +54,7 @@ if st.button('Analyze'):
             Please structure your analysis with the following sections, using markdown formatting:
 
             1. ## Summary
-               Provide a brief overview of the stock's performance and potential.
+               Provide a brief overview of the stock's performance and potential. NOt use the numbers to prevent error.
 
             2. ## Technical Analysis
                Analyze the stock's price movements, trends, and key levels.
@@ -68,10 +68,8 @@ if st.button('Analyze'):
             5. ## Risks and Opportunities
                Highlight potential risks and opportunities for investors.
 
-            6. ## Recommendation
-               Provide a clear investment recommendation (Buy, Hold, or Sell) with a brief explanation.
 
-            Ensure each section is concise yet informative. The entire analysis should be about 300-400 words.
+            Ensure each section is concise yet informative. The entire analysis should be about 400 words.
             
             IMPORTANT: Ensure proper spacing between words and symbols. Do not use special characters or emojis.
             Use standard punctuation and formatting. Separate all words and numbers with spaces.
