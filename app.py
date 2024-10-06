@@ -56,19 +56,16 @@ if st.button('Analyze'):
             1. ## Summary
                Provide a brief overview of the stock's performance and potential. Do not cite numbers from yfinance.
 
-            2. ## Technical Analysis
-               Analyze the stock's price movements, trends, and key levels.
-
-            3. ## Fundamental Analysis
+            2. ## Fundamental Analysis
                Discuss the company's financial health, market position, and growth prospects.
 
-            4. ## Market Sentiment
+            3. ## Market Sentiment
                Evaluate current market trends and investor sentiment towards this stock.
 
-            5. ## Risks and Opportunities
+            4. ## Risks and Opportunities
                Highlight potential risks and opportunities for investors.
 
-            6. ## Conclusion
+            5. ## Conclusion
                 Create conclusion from analysis one to five as a genius financial analyst.
 
             Ensure each section is concise yet informative. The entire analysis should be about 800 words.
