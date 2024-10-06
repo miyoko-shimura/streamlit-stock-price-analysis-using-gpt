@@ -43,16 +43,34 @@ if st.button('Analyze'):
             
             # GPT-4 analysis
             prompt = f"""
-            You are a genius financial analyst. Please analyze the following stock data for {ticker}
-            and provide insightful analysis for investors.
-            
+            As a genius financial analyst, please provide a structured analysis of the stock {ticker} based on the following data:
+
             Latest Close: ${hist['Close'].iloc[-1]:.2f}
             52-Week High: ${hist['High'].max():.2f}
             52-Week Low: ${hist['Low'].min():.2f}
             Average Volume: {hist['Volume'].mean():.0f}
 
-            Please consider current market trends and recent news about the company in your analysis.
-            Provide a comprehensive yet concise analysis in about 200-300 words.
+            Please structure your analysis with the following sections, using markdown formatting:
+
+            1. ## Summary
+               Provide a brief overview of the stock's performance and potential.
+
+            2. ## Technical Analysis
+               Analyze the stock's price movements, trends, and key levels.
+
+            3. ## Fundamental Analysis
+               Discuss the company's financial health, market position, and growth prospects.
+
+            4. ## Market Sentiment
+               Evaluate current market trends and investor sentiment towards this stock.
+
+            5. ## Risks and Opportunities
+               Highlight potential risks and opportunities for investors.
+
+            6. ## Recommendation
+               Provide a clear investment recommendation (Buy, Hold, or Sell) with a brief explanation.
+
+            Ensure each section is concise yet informative. The entire analysis should be about 300-400 words.
             """
 
             response = client.chat.completions.create(
@@ -65,7 +83,7 @@ if st.button('Analyze'):
 
             analysis = response.choices[0].message.content
             st.subheader('GPT-4 Analysis')
-            st.write(analysis)
+            st.markdown(analysis)
 
         except Exception as e:
             st.error(f'An error occurred: {str(e)}')
