@@ -68,8 +68,10 @@ if st.button('Analyze'):
             5. ## Risks and Opportunities
                Highlight potential risks and opportunities for investors.
 
+            6. ## Conclusion
+                Create conclusion from analysis one to five as a genius financial analyst.
 
-            Ensure each section is concise yet informative. The entire analysis should be about 400 words.
+            Ensure each section is concise yet informative. The entire analysis should be about 800 words.
             
             IMPORTANT: Ensure proper spacing between words and symbols. Do not use special characters or emojis.
             Use standard punctuation and formatting. Separate all words and numbers with spaces.
@@ -85,11 +87,29 @@ if st.button('Analyze'):
 
             analysis = response.choices[0].message.content
 
-            # Post-process the analysis to fix any remaining formatting issues
-            analysis = re.sub(r'(\d)([A-Za-z])', r'\1 \2', analysis)  # Add space between numbers and letters
-            analysis = re.sub(r'([A-Za-z])(\d)', r'\1 \2', analysis)  # Add space between letters and numbers
-            analysis = re.sub(r'(\S)([-+*/])', r'\1 \2', analysis)  # Add space before operators
-            analysis = re.sub(r'([-+*/])(\S)', r'\1 \2', analysis)  # Add space after operators
+            # Enhanced post-processing to fix formatting issues
+            def clean_text(text):
+                # Replace instances like "39.22*toitshighestat*140.75" with proper formatting
+                text = re.sub(r'(\d+\.\d+)\*to\w+at\*(\d+\.\d+)', r'\1 to \2', text)
+                
+                # Add space between numbers and words
+                text = re.sub(r'(\d)([A-Za-z])', r'\1 \2', text)
+                text = re.sub(r'([A-Za-z])(\d)', r'\1 \2', text)
+                
+                # Ensure proper spacing around mathematical operators
+                text = re.sub(r'(\S)([-+*/])', r'\1 \2', text)
+                text = re.sub(r'([-+*/])(\S)', r'\1 \2', text)
+                
+                # Fix spacing issues with dollar amounts
+                text = re.sub(r'\$\s+', '$', text)
+                
+                # Ensure proper spacing for ranges
+                text = re.sub(r'(\d+)\s*-\s*(\d+)', r'\1 - \2', text)
+                
+                return text
+
+            analysis = clean_text(analysis)
+
 
             st.subheader('GPT-4 Analysis')
             st.markdown(analysis)
