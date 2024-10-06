@@ -3,6 +3,7 @@ import yfinance as yf
 import pandas as pd
 from openai import OpenAI
 import plotly.graph_objects as go
+import re
 
 # Streamlit app title
 st.title('Stock Analysis App - GPT-4 Genius Analyst')
@@ -71,17 +72,27 @@ if st.button('Analyze'):
                Provide a clear investment recommendation (Buy, Hold, or Sell) with a brief explanation.
 
             Ensure each section is concise yet informative. The entire analysis should be about 300-400 words.
+            
+            IMPORTANT: Ensure proper spacing between words and symbols. Do not use special characters or emojis.
+            Use standard punctuation and formatting. Separate all words and numbers with spaces.
             """
 
             response = client.chat.completions.create(
                 model="gpt-4",
                 messages=[
-                    {"role": "system", "content": "You are a genius financial analyst."},
+                    {"role": "system", "content": "You are a genius financial analyst. Provide clear, well-formatted analysis."},
                     {"role": "user", "content": prompt}
                 ]
             )
 
             analysis = response.choices[0].message.content
+
+            # Post-process the analysis to fix any remaining formatting issues
+            analysis = re.sub(r'(\d)([A-Za-z])', r'\1 \2', analysis)  # Add space between numbers and letters
+            analysis = re.sub(r'([A-Za-z])(\d)', r'\1 \2', analysis)  # Add space between letters and numbers
+            analysis = re.sub(r'(\S)([-+*/])', r'\1 \2', analysis)  # Add space before operators
+            analysis = re.sub(r'([-+*/])(\S)', r'\1 \2', analysis)  # Add space after operators
+
             st.subheader('GPT-4 Analysis')
             st.markdown(analysis)
 
