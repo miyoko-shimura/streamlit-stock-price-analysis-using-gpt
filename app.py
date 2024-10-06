@@ -54,7 +54,7 @@ if st.button('Analyze'):
             Please structure your analysis with the following sections, using markdown formatting:
 
             1. ## Summary
-               Provide a brief overview of the stock's performance and potential. Do not cite numbers from yfinance.
+               Provide a brief overview of the stock's performance and potential. Do not use numbers.
 
             2. ## Fundamental Analysis
                Discuss the company's financial health, market position, and growth prospects.
