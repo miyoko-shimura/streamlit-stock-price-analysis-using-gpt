@@ -66,9 +66,9 @@ if st.button('Analyze'):
                Highlight potential risks and opportunities for investors.
 
             5. ## Conclusion
-                Create conclusion from analysis one to five as a genius financial analyst.
+                Create conclusion from analysis one to five. But avoid any investment advice.
 
-            Ensure each section is concise yet informative. The entire analysis should be about 800 words.
+            Ensure each section is concise yet informative. The entire analysis should be about 600 words.
             
             IMPORTANT: Ensure proper spacing between words and symbols. Do not use special characters or emojis.
             Use standard punctuation and formatting. Separate all words and numbers with spaces.
