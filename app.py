@@ -9,10 +9,15 @@ import re
 st.title('Stock Analysis App - GPT-4 Analyst')
 
 # Disclaimer
+# Concise Legal Disclaimer (approximately 70 words)
 st.warning("""
-    Disclaimer: This application provides AI-generated analysis for educational purposes only. 
-    It does not constitute financial advice, and should not be used as the basis for any investment decisions. 
-    Always conduct your own research and consult with a qualified financial advisor before making investment choices.
+    **LEGAL DISCLAIMER**
+
+    This app provides AI-generated stock analysis for educational purposes only, not financial advice. Information may be inaccurate or outdated. We make no warranties and accept no liability for any losses or decisions based on this data. 
+
+    Consult a qualified financial advisor before making investment decisions. AI analysis and stock investments carry inherent risks. 
+
+    By using this app, you agree to these terms and use the information at your own risk.
     """)
 
 # Sidebar for OpenAI API key input
