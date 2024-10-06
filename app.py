@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 import re
 
 # Streamlit app title
-st.title('Stock Analysis App - GPT-4 Genius Analyst')
+st.title('Stock Analysis App - GPT-4 Analyst')
 
 # Sidebar for OpenAI API key input
 api_key = st.sidebar.text_input("Enter your OpenAI API key", type="password")
