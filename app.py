@@ -57,7 +57,7 @@ if st.button('Analyze'):
                Provide a brief overview of the stock's performance and potential. Do not use numbers.
 
             2. ## Fundamental Analysis
-               Discuss the company's financial health, market position, and growth prospects.
+               Discuss the company's financial health, market position, and growth prospects. Do not use numbers.
 
             3. ## Market Sentiment
                Evaluate current market trends and investor sentiment towards this stock.
