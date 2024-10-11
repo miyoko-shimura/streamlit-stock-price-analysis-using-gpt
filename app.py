@@ -75,8 +75,13 @@ if st.button('Analyze'):
 
             4. ## Risks and Opportunities
                Highlight potential risks and opportunities for investors.
+               
+            5. ## Investment Outlook
+                5-1. Short-term (1-3 months)
+                5-2. Medium-term (6-12 months)
+                5-3. Long-term (3-5 years)
 
-            5. ## Conclusion
+            6. ## Conclusion
                 Create conclusion from analysis one to five. But avoid any investment advice.
 
             Ensure each section is concise yet informative. The entire analysis should be about 600 words.
