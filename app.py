@@ -1,6 +1,5 @@
 import streamlit as st
 import yfinance as yf
-import pandas as pd
 from openai import OpenAI
 import plotly.graph_objects as go
 import re
