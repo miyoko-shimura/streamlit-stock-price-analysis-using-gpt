@@ -17,8 +17,8 @@ st.warning("""
     Consult a qualified financial advisor before making investment decisions. By using this app, you agree to these terms and use the information at your own risk.
     """)
 
-# Sidebar for OpenAI API key input
-api_key = st.sidebar.text_input("Enter your OpenAI API key", type="password")
+# Use the API key from Streamlit secrets
+api_key = st.secrets["openai_api_key"]
 client = OpenAI(api_key=api_key)
 
 # User input for stock ticker symbol
@@ -27,8 +27,6 @@ ticker = st.text_input('Enter a stock ticker symbol (e.g., AAPL, GOOGL):')
 if st.button('Analyze'):
     if not ticker:
         st.warning('Please enter a ticker symbol.')
-    elif not api_key:
-        st.warning('Please enter your OpenAI API key.')
     else:
         try:
             # Fetch stock data using yfinance
