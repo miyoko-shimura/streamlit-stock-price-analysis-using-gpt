@@ -82,7 +82,7 @@ if st.button('Analyze'):
                 5-3. Long-term (3-5 years)
 
             6. ## Conclusion
-                Create conclusion from analysis one to five. But avoid any investment advice.
+                Create conclusion from analysis one to five. 
 
             Ensure each section is concise yet informative. The entire analysis should be about 600 words.
             
