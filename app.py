@@ -17,8 +17,8 @@ st.warning("""
     Consult a qualified financial advisor before making investment decisions. By using this app, you agree to these terms and use the information at your own risk.
     """)
 
-# Use the API key from Streamlit secrets
-api_key = st.secrets["openai_api_key"]
+# Sidebar for OpenAI API key input
+api_key = st.sidebar.text_input("Enter your OpenAI API key", type="password")
 client = OpenAI(api_key=api_key)
 
 # User input for stock ticker symbol
@@ -27,6 +27,8 @@ ticker = st.text_input('Enter a stock ticker symbol (e.g., AAPL, GOOGL):')
 if st.button('Analyze'):
     if not ticker:
         st.warning('Please enter a ticker symbol.')
+    elif not api_key:
+        st.warning('Please enter your OpenAI API key.')
     else:
         try:
             # Fetch stock data using yfinance
@@ -71,8 +73,13 @@ if st.button('Analyze'):
 
             4. ## Risks and Opportunities
                Highlight potential risks and opportunities for investors.
+               
+            5. ## Investment Outlook
+               5-1. Short-term (3-6 months)
+               5-2. Long-term (1-3 years)
+               Provide advice on whether this stock should be bought in the short-term and long-term.
 
-            5. ## Conclusion
+            6. ## Conclusion
                 Create conclusion from analysis one to five. But avoid any investment advice.
 
             Ensure each section is concise yet informative. The entire analysis should be about 600 words.
